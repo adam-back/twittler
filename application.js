@@ -1,22 +1,24 @@
 var loadTweets = function() {
-          var $div = $('div');
-            $div.html();
+  //var now = moment();
+  var $div = $('div');
+    $div.html();
 
-            var index = streams.home.length - 1;
-            while(index >= 0){
-              var tweet = streams.home[index];
-              var $tweet = $('<div></div>');
-              $tweet.text(tweet.created_at +' @' + tweet.user + ': ' + tweet.message);
-              $tweet.appendTo($div);
-              index -= 1;
-            }
-          };
+    var index = streams.home.length - 1;
+    while(index >= 0){
+      var tweet = streams.home[index];
+      var $tweet = $('<div></div>');
+      var time = tweet.created_at;
+      $tweet.text(time.toLocaleTimeString() + ': @' + tweet.user + ': ' + tweet.message);
+      $tweet.appendTo($div);
+      index -= 1;
+    }
+  };
 
-          $(document).ready(function(){
-            loadTweets();
+$(document).ready(function(){
+  loadTweets(); 
 
-            $('button').on('click', function() {
-              $('div').html('');
-              loadTweets();
-            });
-          });
+  $('button').on('click', function() {
+    $('div').html('');
+    loadTweets();
+  });
+});
