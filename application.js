@@ -6,9 +6,12 @@ var loadTweets = function() {
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
-      var $tweet = $('<p id="message"></p>');
+      var $tweet = $('<div id="message"></div>');
+      var $label = $('<div id="label"></div>')
       var time = tweet.created_at;
-      $tweet.text(time.toLocaleTimeString() + ': @' + tweet.user + ': ' + tweet.message);
+      $label.text(time.toLocaleTimeString() + ': @' + tweet.user + ':');
+      $label.appendTo($div);
+      $tweet.text(tweet.message);
       $tweet.appendTo($div);
       index -= 1;
     }
