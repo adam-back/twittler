@@ -25,7 +25,7 @@ $(document).ready(function(){
   });
 
   $("#label").on("click", function() {
-    alert("Clicked username!");
+    $('.profile').slideToggle();
   });
 
 });
