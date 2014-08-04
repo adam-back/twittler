@@ -1,7 +1,6 @@
 var loadTweets = function() {
   //var now = moment();
   var $div = $('.display');
-    $div.html();
 
     var index = streams.home.length - 1;
     while(index >= 0){
@@ -24,4 +23,9 @@ $(document).ready(function(){
     $('div').html('');
     loadTweets();
   });
+
+  $("#label").on("click", function() {
+    alert("Clicked username!");
+  });
+
 });
