@@ -28,4 +28,8 @@ $(document).ready(function(){
     $('.profile').slideToggle();
   });
 
+  $('.profile').on("click", function() {
+    $(this).slideToggle();
+  });
+
 });
