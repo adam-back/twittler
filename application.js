@@ -23,9 +23,4 @@ $(document).ready(function(){
     loadTweets();
   });
 
-  $('a').on('click', function() {
-    var username = $(this).html().slice(1);
-    alert(username);
-  });
-
 });
