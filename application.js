@@ -6,15 +6,20 @@ var loadTweets = function() {
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<div id="message"></div>');
-      var $label = $('<div id="label"></div>')
-      var time = tweet.created_at;
-      $label.text(time.toLocaleTimeString() + ': @' + tweet.user + ':');
+      var $label = $('<div id="label"></div>');
+      var $time = $('<div> id ="time"></div>');
+      $label.text('@' + tweet.user + ':').appendTo($div);
       $label.appendTo($div);
       $tweet.text(tweet.message);
       $tweet.appendTo($div);
+      $time.text(tweet.created_at.toLocaleTimeString()).appendTo($div);
       index -= 1;
     }
   };
+
+var loadUser = function() {
+
+};
 
 $(document).ready(function(){
   loadTweets(); 
@@ -25,6 +30,7 @@ $(document).ready(function(){
   });
 
   $("#label").on("click", function() {
+
     $('.profile').slideToggle();
   });
 
