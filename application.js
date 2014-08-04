@@ -19,7 +19,7 @@ $(document).ready(function() {
     refreshTweets();
   });
 
-  $("button#label").on('click', function() {
+  $(document).on('click', 'button#label', function() {
      var username = $(this).text().slice(1);
      username = username.slice(0, (username.length - 1));
      window.location.href = "profile.html?username=" + username;
