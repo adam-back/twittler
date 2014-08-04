@@ -15,6 +15,8 @@
 
     var username= parent.document.URL.substring(parent.document.URL.indexOf('=') + 1, parent.document.URL.length);
 
+//need to pull from streams.users.username instead of home.
+//access object and cycle through tweets using key-in loop
     var userTweets = function() {
         var $div = $('.display');
           var index = streams.home.length - 1;
