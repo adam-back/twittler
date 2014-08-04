@@ -6,36 +6,13 @@ var loadTweets = function() {
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<div id="message"></div>');
-      var $label = $('<div id="label"></div>');
+      var $label = $('<a id="label" href="profile.html"><div id="label"></div></a>');
       var $time = $('<div id="time"></div>');
       $label.text('@' + tweet.user + ':').appendTo($div);
       $tweet.text(tweet.message).appendTo($div);
       $time.text(tweet.created_at.toLocaleTimeString()).appendTo($div);
       index -= 1;
     }
-  };
-
-var loadUser = function(user) {
-  var $div = $('.profile');
-  var listOfTweets = streams.users.mracus
-  var i = listOfTweets.length - 1;
-  /*while(i >= 0) {
-    var tweet = listOfTweets[i];
-    var $tweet = $('<div id="message"></div>');
-    var $label = $('<div id="label"></div>');
-    var $time = $('<div id="time"></div>');
-    $label.text('@' + tweet.user + ':').appendTo($div);
-    $tweet.text(tweet.message).appendTo($div);
-    $time.text(tweet.created_at.toLocaleTimeString()).appendTo($div);
-    i -= 1;
-  }*/
-  while(i >=0) {
-    var tweet = listOfTweets[i];
-    var $list = $('<div></div>');
-    $list.text(tweet.message).appendTo($div);
-    i--;
-  }
-  
 };
 
 $(document).ready(function(){
@@ -46,13 +23,9 @@ $(document).ready(function(){
     loadTweets();
   });
 
-  $("#label").on("click", function() {
-    loadUser();
-    $('.profile').slideToggle();
-  });
-
-  $('.profile').on("click", function() {
-    $(this).slideToggle();
+  $('a').on('click', function() {
+    var username = $(this).html().slice(1);
+    alert(username);
   });
 
 });

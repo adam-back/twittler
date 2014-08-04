@@ -47,13 +47,8 @@ h1 {
     width: 8%;
 }
 
-.profile {
-	width: 40%;
-	height: 40px;
-	float: right;
-	color: white;
-	border: 2px solid black;
-	display: none;
+a {
+	#label;
 }
 
 p { 
