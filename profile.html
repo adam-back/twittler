@@ -7,9 +7,16 @@
   </head>
   <body>
     <p>Twittler</p>
-    <p id='usename'</p>
-    <button type="button" id="refresh">Click for New Tweets</button>
+    <p id='usename'></p>
+    <button type="button" id="return">Return to Your Feed</button>
     <div class="display">
     </div>
+    <script>
+      $(document).ready(function() {
+        $('button').on('click', function() {
+          window.location.href = "index.html";
+        })
+      })
+      </script>
   </body>
 </html>
