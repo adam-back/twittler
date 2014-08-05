@@ -30,7 +30,12 @@
 
       $(document).ready(function() {
         loadTweets();
+
+       $('#refresh').on('click', function() {
+          refreshTweets();
+        });
       });
+      
     </script>
   </body>
 </html>
