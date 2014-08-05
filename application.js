@@ -1,19 +1,19 @@
 $(document).ready(function() {
 
   var refreshTweets = function() {
-      var $div = $('.display');
-      var index = 0;
-      while(index < streams.home.length){
-        var tweet = streams.home[index];
-        var $tweet = $('<div id="message"></div>');
-        var $label = $('<button id="label"></button>');
-        var $time = $('<div id="time"></div>');
-        $time.text(tweet.created_at.toLocaleTimeString()).prependTo($div);
-        $tweet.text(tweet.message).prependTo($div);
-        $label.text('@' + tweet.user + ':').prependTo($div);
-        index++;
-      }
-  };
+    var $div = $('.display');
+          var index = 0;
+          while(index < streams.home.length){
+            var tweet = streams.home[index];
+            var $tweet = $('<div id="message"></div>');
+            var $label = $('<button id="label"></button>');
+            var $time = $('<div id="time"></div>');
+            $time.text(tweet.created_at.toLocaleTimeString()).prependTo($div);
+            $tweet.text(tweet.message).prependTo($div);
+            $label.text('@' + tweet.user + ':').prependTo($div);
+            index++;
+          }
+      };
 
   $('#refresh').on('click', function() {
     refreshTweets();
