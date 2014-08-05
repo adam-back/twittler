@@ -8,12 +8,12 @@
   <body>
     <p>Twittler</p>
     <p id='username'></p>
-    <button type="button" id="return">Return to Your Feed</button>
+    <button type="button" id="return">Return to Your Twittler</button>
     <div class="display">
     </div>
     <script>
 
-    var username= parent.document.URL.substring(parent.document.URL.indexOf('=') + 1, parent.document.URL.length);
+    var username = parent.document.URL.substring(parent.document.URL.indexOf('=') + 1, parent.document.URL.length);
 
       var userTweets = function() {
         var $div = $('.display');
@@ -24,16 +24,17 @@
           $tweet.text(messageArray[key].message).appendTo($div);
           $time.text(messageArray[key].created_at.toLocaleTimeString()).appendTo($div);
         };
-      }
+      };
+
+      userTweets();
 
       $(document).ready(function() {
         $("#username").text("Timeline for: " + username);
 
-        userTweets();
-
         $('button').on('click', function() {
           window.location.href = "index.html";
         });
+
       });
 
       </script>
