@@ -7,6 +7,13 @@ h1 {
 	margin-left: 45px;
 }
 
+#username {
+	font-size: 40px;
+	font-style: italic;
+	color: #FF814C;
+	margin-left: 50px
+}
+
 #message {
 	background-color: #C1B8F1;
 	box-shadow: -15px 0px #9689DF;

@@ -7,7 +7,7 @@
   </head>
   <body>
     <p>Twittler</p>
-    <p id='usename'></p>
+    <p id='username'></p>
     <button type="button" id="return">Return to Your Feed</button>
     <div class="display">
     </div>
@@ -15,29 +15,19 @@
 
     var username= parent.document.URL.substring(parent.document.URL.indexOf('=') + 1, parent.document.URL.length);
 
-//need to pull from streams.users.username instead of home.
-//access object and cycle through tweets using key-in loop
-    var userTweets = function() {
+      var userTweets = function() {
         var $div = $('.display');
-          var index = streams.home.length - 1;
-          while(index >= 0) {
-            var tweet = streams.home[index];
-            if(tweet.user == username) {
-              var $tweet = $('<div id="message"></div>');
-              var $label = $('<button id="label"></button>');
-              var $time = $('<div id="time"></div>');
-              $label.text('@' + tweet.user + ':').appendTo($div);
-              $tweet.text(tweet.message).appendTo($div);
-              $time.text(tweet.created_at.toLocaleTimeString()).appendTo($div);
-              index--;
-            } else {
-              index--;
-            }
-          }
-      };
+        var messageArray = streams.users[username];
+        for(var key in messageArray) {
+          var $tweet = $('<div id="message"></div>');
+          var $time = $('<div id="time"></div>');
+          $tweet.text(messageArray[key].message).appendTo($div);
+          $time.text(messageArray[key].created_at.toLocaleTimeString()).appendTo($div);
+        };
+      }
 
       $(document).ready(function() {
-        $("#username").text(username);
+        $("#username").text("Timeline for: " + username);
 
         userTweets();
 
